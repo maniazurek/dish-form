@@ -15,12 +15,12 @@ const Welcome = () => {
   return (
     <MainLayout style={{ margin: "0", paddingLeft: "80px" }}>
       <MainTitle style={{ marginTop: "100px" }}>Hello!</MainTitle>
-      <MainTitle>Click the button below to see the list of carts:</MainTitle>
+      <MainTitle>Click the button below to see what's next</MainTitle>
       <Button
         onClick={onStart}
         style={{ fontSize: "25px", padding: "10px", marginTop: "35px" }}
       >
-        <Title>All carts</Title>
+        <Title>Go</Title>
         <span
           class="fas fa-angle-double-right"
           style={{ fontSize: "23px" }}
