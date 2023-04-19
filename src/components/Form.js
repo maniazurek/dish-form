@@ -33,6 +33,8 @@ const Form = ({
     event.preventDefault();
     if (name.length < 3) {
       setNameError(true);
+    } else if (preparationTime.length <= 4 || type < 1) {
+      setError(true);
     } else {
       if (type === "pizza") {
         if (numberOfSlices.length < 1 || diameter.length < 1) {
@@ -102,7 +104,9 @@ const Form = ({
                 })}
               </select>
             </TextContainer>
-            <TextContainer>
+            <TextContainer
+              style={{ display: type === "pizza" ? "flex" : "none" }}
+            >
               {type === "pizza" && (
                 <TextContainer
                   style={{
@@ -116,7 +120,7 @@ const Form = ({
                     <Title>4. Number of slices:</Title>
                     <Input
                       type="Number of slices"
-                      placeholder="Number"
+                      placeholder="Number of slices..."
                       value={numberOfSlices}
                       onChange={(event) =>
                         setNumberOfSlices(event.target.value)
@@ -128,8 +132,8 @@ const Form = ({
                     <Input
                       type="number"
                       min={0}
-                      step="any"
-                      placeholder="Number"
+                      step="5"
+                      placeholder="Diameter length..."
                       value={diameter}
                       onChange={(event) => setDiameter(event.target.value)}
                     ></Input>
@@ -137,7 +141,9 @@ const Form = ({
                 </TextContainer>
               )}
             </TextContainer>
-            <TextContainer>
+            <TextContainer
+              style={{ display: type === "soup" ? "flex" : "none" }}
+            >
               {type === "soup" && (
                 <TextContainer>
                   <Title>4. Spiceness level:</Title>
@@ -156,6 +162,7 @@ const Form = ({
                 <Title>4. Number of slices of bread:</Title>
                 <Input
                   type="number"
+                  placeholder="Number of slices..."
                   min={0}
                   value={slices}
                   onChange={(event) => setSlices(event.target.value)}

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Routes, Route, Outlet } from "react-router-dom";
 import Content from "../components/Content";
 import Navigation from "../components/Navigation";

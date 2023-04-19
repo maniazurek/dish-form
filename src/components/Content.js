@@ -13,7 +13,6 @@ import { BASE_API_URL } from "../utils/commons";
 
 const Content = () => {
   const [isFormOpen, setIsFormOpen] = useState(false);
-  const [dishesData, setDishesData] = useState([]);
 
   const handleOpenForm = () => {
     setIsFormOpen(!isFormOpen);

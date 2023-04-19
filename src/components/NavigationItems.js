@@ -4,7 +4,6 @@ import {
   NavigationItem,
   NavigationItemsContainer,
   NavigationHeader,
-  Button,
 } from "../utils/styledComponents";
 
 const NavigationItems = () => {
