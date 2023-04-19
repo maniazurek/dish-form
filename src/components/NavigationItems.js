@@ -7,7 +7,7 @@ import {
   Button,
 } from "../utils/styledComponents";
 
-const NavigationItems = ({ openProfile }) => {
+const NavigationItems = () => {
   return (
     <NavigationItemsContainer>
       <NavLinkElement to="/">
@@ -18,22 +18,8 @@ const NavigationItems = ({ openProfile }) => {
         <NavigationHeader>Back</NavigationHeader>
       </NavLinkElement>
       <NavLinkElement to="/dishes">
-        <NavigationItem>Content</NavigationItem>
+        <NavigationItem>Dishes</NavigationItem>
       </NavLinkElement>
-
-      <Button
-        onClick={openProfile}
-        style={{
-          borderColor: "#fff",
-          width: "30px",
-          height: "30px",
-          borderRadius: "50%",
-          position: "absolute",
-          bottom: "145px",
-        }}
-      >
-        <i class="fa fa-question-circle" style={{ fontSize: "30px" }}></i>
-      </Button>
     </NavigationItemsContainer>
   );
 };

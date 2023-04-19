@@ -2,10 +2,10 @@ import React from "react";
 import { SideNavigation } from "../utils/styledComponents";
 import NavigationItems from "./NavigationItems";
 
-const Navigation = ({ openProfile }) => {
+const Navigation = () => {
   return (
     <SideNavigation>
-      <NavigationItems openProfile={openProfile} />
+      <NavigationItems />
     </SideNavigation>
   );
 };

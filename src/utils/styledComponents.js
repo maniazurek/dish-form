@@ -5,6 +5,8 @@ export const MainLayout = styled.div`
   margin-left: 148px;
   padding: 55px 55px 0px 55px;
   overflow-x: hidden;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const MainTitle = styled.p`
@@ -21,6 +23,13 @@ export const Title = styled.p`
   font-weight: bold;
 `;
 
+export const Error = styled.p`
+  font-size: 15px;
+  margin: 0;
+  font-weight: bold;
+  color: red;
+`;
+
 export const Button = styled.button`
   color: #fff;
   background-color: #2c2c31;
@@ -32,6 +41,7 @@ export const Button = styled.button`
   gap: 5px;
   justify-content: center;
   align-items: center;
+  width: 80px;
 `;
 
 export const SideNavigation = styled.nav`
@@ -78,7 +88,7 @@ export const NavigationItem = styled.h3`
 export const Header = styled.h2`
   color: #2c2c31;
   margin-top: 0;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 `;
 
 export const Overlay = styled.div`
@@ -118,10 +128,33 @@ export const CloseButton = styled.div`
 
 export const FormPost = styled.form`
   display: flex;
+  flex-direction: column;
+  gap: 20px;
 `;
 
 export const Input = styled.input`
   border: none;
   outline: none;
   background-color: #eef3f6;
+  border-radius: 5px;
+`;
+
+export const TextContainer = styled.div`
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  gap: 10px;
+`;
+
+export const Picture = styled.img`
+  width: 300px;
+  height: 300px;
+  border-radius: 10px;
+  object-fit: cover;
+`;
+
+export const PicturesContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
 `;
