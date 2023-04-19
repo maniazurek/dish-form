@@ -24,29 +24,36 @@ const Form = ({
   const [type, setType] = useState("");
   const [numberOfSlices, setNumberOfSlices] = useState("");
   const [diameter, setDiameter] = useState("");
-  const [spiciness, setSpiciness] = useState("null");
+  const [spiciness, setSpiciness] = useState("");
   const [slices, setSlices] = useState("");
   const [error, setError] = useState(false);
   const [nameError, setNameError] = useState(false);
 
   const addNewDish = (event) => {
     event.preventDefault();
-    if (name.length < 3 || preparationTime.length <= 4 || type.length < 1) {
-      setError(true);
+    if (name.length < 3) {
+      setNameError(true);
     } else {
       if (type === "pizza") {
         if (numberOfSlices.length < 1 || diameter.length < 1) {
           setError(true);
         } else {
           addPizzaData(name, preparationTime, type, numberOfSlices, diameter);
+          setIsFormOpen(false);
         }
       } else if (type === "soup") {
-        addSoupData(name, preparationTime, type, spiciness);
+        if (!spiciness) {
+          setError(true);
+        } else {
+          addSoupData(name, preparationTime, type, spiciness);
+          setIsFormOpen(false);
+        }
       } else if (type === "sandwich") {
         if (slices < 1) {
           setError(true);
         } else {
           addSandwichData(name, preparationTime, type, slices);
+          setIsFormOpen(false);
         }
       }
     }
@@ -55,6 +62,7 @@ const Form = ({
   return (
     <>
       <Window>
+        {nameError && <Error>Name has to have at least 3 characters</Error>}
         {error && <Error>All fields are required</Error>}
         <TextContainer style={{ display: "flex", flexDirection: "column" }}>
           <Header>Add a new dish:</Header>
