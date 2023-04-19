@@ -11,7 +11,7 @@ const Content = () => {
     setIsFormOpen(!isFormOpen);
   };
 
-  const addDishData = (
+  const addPizzaData = (
     name,
     preparation_time,
     type,
@@ -30,6 +30,36 @@ const Content = () => {
       }),
     })
       .then((res) => res.json())
+      .then(() => console.log("pizza added"));
+  };
+
+  const addSoupData = (name, preparation_time, type, spiciness_scale) => {
+    fetch(`${BASE_API_URL}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name,
+        preparation_time,
+        type,
+        spiciness_scale,
+      }),
+    })
+      .then((res) => res.json())
+      .then(() => console.log("added"));
+  };
+
+  const addSandwichData = (name, preparation_time, type, slices_of_bread) => {
+    fetch(`${BASE_API_URL}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name,
+        preparation_time,
+        type,
+        slices_of_bread,
+      }),
+    })
+      .then((res) => res.json())
       .then(() => console.log("added"));
   };
 
@@ -39,7 +69,12 @@ const Content = () => {
 
       {isFormOpen && (
         <Overlay>
-          <Form handleOpenForm={handleOpenForm} addDishData={addDishData}/>
+          <Form
+            handleOpenForm={handleOpenForm}
+            addPizzaData={addPizzaData}
+            addSoupData={addSoupData}
+            addSandwichData={addSandwichData}
+          />
         </Overlay>
       )}
       <Button
